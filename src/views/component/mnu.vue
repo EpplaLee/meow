@@ -1,14 +1,14 @@
 <template>
     <Menu mode="horizontal" theme="dark" active-name="1" class="menu">
-        <Menu-item name="1" class="menu-item">
+        <Menu-item name="1" :value="menu.adopt" class="menu-item">
             <i class="fa fa-heart" aria-hidden="true"></i>
             领养
         </Menu-item>
-        <Menu-item name="2" class="menu-item">
+        <Menu-item name="2" :value="menu.adopt" class="menu-item">
             <i class="fa fa-star" aria-hidden="true"></i>
             日常
         </Menu-item>
-        <Menu-item name="3" class="menu-item">
+        <Menu-item name="3" :value="menu.adopt" class="menu-item">
             <i class="fa fa-medkit" aria-hidden="true"></i>
             救助
         </Menu-item>
