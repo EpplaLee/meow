@@ -1,30 +1,38 @@
 <template>
-    <Menu mode="horizontal" theme="dark" active-name="1" class="menu">
-        <Menu-item name="1" :value="menu.adopt" class="menu-item">
+    <Menu mode="horizontal" theme="dark" active-name="post" class="menu" @on-select='changeMenu'>
+        <Menu-item name="adopt"  class="menu-item">
             <i class="fa fa-heart" aria-hidden="true"></i>
             领养
         </Menu-item>
-        <Menu-item name="2" :value="menu.adopt" class="menu-item">
+        <Menu-item name="post"  class="menu-item">
             <i class="fa fa-star" aria-hidden="true"></i>
             日常
         </Menu-item>
-        <Menu-item name="3" :value="menu.adopt" class="menu-item">
+        <Menu-item name="aid"  class="menu-item">
             <i class="fa fa-medkit" aria-hidden="true"></i>
             救助
         </Menu-item>
     </Menu>  
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
-
+    }
+  },
+  methods: {
+    ...mapMutations([
+      'changeSection'
+    ]),
+    changeMenu (activeName) {
+      console.log(activeName)
+      this.changeSection(activeName)
     }
   }
 }
 </script>
 <style scoped>
-   
 .menu {
     position: fixed;
     bottom: 0;
@@ -35,5 +43,4 @@ export default {
     background-color: #CBDAC7;
     
 }
-
 </style>

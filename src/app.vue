@@ -1,28 +1,17 @@
 <template>
-    <div id="body">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
+
 <script>
-    export default {
-        data() {
-            return {
-
-            };
-        },
-        mounted() {
-
-        },
-        beforeDestroy() {
-
-        },
-        methods: {
-
-        }
-    };
+export default {
+  name: 'app'
+}
 </script>
+
 <style scoped>
-    #body {
+#app {
         position: relative;
         flex-direction: column;
         justify-content: space-between;
@@ -33,5 +22,5 @@
         max-height: 736px;
         text-align: center;
         background-color: #F7F7EF;
-    }
+}
 </style>

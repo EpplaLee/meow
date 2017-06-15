@@ -1,4 +1,3 @@
-
 <template>
     <div class="index full-page">
         <navi></navi>
@@ -7,9 +6,9 @@
     </div>
 </template>
 <script>
-import navi from "./component/navi.vue"
-import posts from "./component/posts.vue"
-import mnu from "./component/mnu.vue"
+import navi from './components/navi.vue'
+import posts from './components/posts.vue'
+import mnu from './components/mnu.vue'
 export default {
   components: {
     'mnu': mnu,
@@ -18,7 +17,7 @@ export default {
   },
   data () {
     return {
-      hasLoged : false,
+      hasLoged: false
     }
   }
 }
