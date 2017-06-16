@@ -21,13 +21,20 @@ export default {
     return {
     }
   },
+  mounted () {
+    this.$store.dispatch('getAllPosts')
+  },
   methods: {
-    ...mapMutations([
-      'changeSection'
-    ]),
+    ...mapMutations({
+      changeSection: 'CHANGE_SECTION'
+    }),
+    // ...mapActions([
+    //   'getAllPosts'
+    // ]),
     changeMenu (activeName) {
       console.log(activeName)
       this.changeSection(activeName)
+      this.$store.dispatch('getAllPosts')
     }
   }
 }

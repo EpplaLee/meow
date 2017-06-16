@@ -1,18 +1,18 @@
 <template>
     <div class="index full-page">
         <navi></navi>
-        <posts></posts>
+        <post></post>
         <mnu></mnu>    
     </div>
 </template>
 <script>
 import navi from './components/navi.vue'
-import posts from './components/posts.vue'
+import post from './components/post.vue'
 import mnu from './components/mnu.vue'
 export default {
   components: {
     'mnu': mnu,
-    'posts': posts,
+    'post': post,
     'navi': navi
   },
   data () {
