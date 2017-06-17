@@ -13,7 +13,7 @@
             </Select>
             <Button slot="append" icon="ios-search"></Button>
         </Input>
-        <router-link to="/post"><Button type="error" shape="circle" icon="plus-round" class="button"></Button></router-link>
+        <router-link to="/push"><Button type="error" shape="circle" icon="plus-round" class="button"></Button></router-link>
     </div>
 </template>s
 <script>
@@ -22,7 +22,7 @@ export default {
     return {
       value: '',
       select: 'post',
-      hasLog: false
+      hasLog: this.$store.state.logState
     }
   }
 }

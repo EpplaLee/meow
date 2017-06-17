@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import postApi from '../api/post'
+import api from '../api/api'
+import router from '../router'
 
 Vue.use(Vuex)
 
@@ -14,17 +15,19 @@ export default new Vuex.Store({
   },
   actions: {
     getAllPosts ({commit, state}) {
-      return postApi.getAllPosts(state.section, state.curPage, state.user).then(res => {
+      return api.getAllPosts(state.section, state.curPage, state.user).then(res => {
         commit('GET_ALL_POSTS', res.data.posts)
         return new Promise((resolve, reject) => {
           resolve(res)
         })
       })
     },
-    login ({commit, state}, username, password) {
-      postApi.login(username, password).then(res => {
-        if (res.data.success === true) {
+    login ({commit, state}, { username, password }) {
+      api.login(username, password).then(function (res) {
+        if (res.data.loginSuccess === true) {
           commit('LOG_IN', username)
+          alert('登陆成功')
+          router.push('/')
         } else {
           alert('账号不存在或密码错误')
         }

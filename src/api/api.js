@@ -7,5 +7,8 @@ export default {
   },
   login (username, password) {
     return axios.get(`/api/login?username=${username}&password=${password}`)
+  },
+  signup (username, password) {
+    return axios.get(`/api/signup?username=${username}&password=${password}`)
   }
 }

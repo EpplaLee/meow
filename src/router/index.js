@@ -9,21 +9,21 @@ const routers = [{
     title: ''
   },
   component: (resolve) => require(['../view/index.vue'], resolve)
-}
-// {
-//   path: '/login',
-//   meta: {
-//     title: 'login'
-//   },
-//   component: (resolve) => require(['./views/login.vue'], resolve)
-// },
-// {
-//   path: '/signup',
-//   meta: {
-//     title: 'signup'
-//   },
-//   component: (resolve) => require(['./views/signup.vue'], resolve)
-// },
+},
+{
+  path: '/login',
+  meta: {
+    title: 'login'
+  },
+  component: (resolve) => require(['../view/login.vue'], resolve)
+},
+{
+  path: '/signup',
+  meta: {
+    title: 'signup'
+  },
+  component: (resolve) => require(['../view/signup.vue'], resolve)
+},
 // {
 //   path: '/userpage',
 //   meta: {
@@ -31,13 +31,13 @@ const routers = [{
 //   },
 //   component: (resolve) => require(['./views/userpage'], resolve)
 // },
-// {
-//   path: '/post',
-//   meta: {
-//     title: 'post'
-//   },
-//   component: (resolve) => require(['./views/post'], resolve)
-// }
+{
+  path: '/push',
+  meta: {
+    title: 'post'
+  },
+  component: (resolve) => require(['../view/push.vue'], resolve)
+}
 ]
 export default new Router({
   routes: routers
