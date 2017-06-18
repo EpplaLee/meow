@@ -5,6 +5,9 @@ export default {
   getAllPosts (section) {
     return axios.get(`/api/posts?section=${section}`)
   },
+  getPost (postId) {
+    return axios.get(`/api/post/${postId}`)
+  },
   login (username, password) {
     return axios.get(`/api/login?username=${username}&password=${password}`)
   },
@@ -20,6 +23,17 @@ export default {
         url: url,
         post_type: type,
         user: user
+      }
+    })
+  },
+  pushComment (content, user, id) {
+    return axios({
+      method: 'POST',
+      url: '/api/comment',
+      data: {
+        content: content,
+        user: user,
+        id: id
       }
     })
   }

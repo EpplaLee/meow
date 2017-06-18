@@ -38,6 +38,18 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING
     }
 })
+const Comment = sequelize.define('comment', {
+    post_id: {
+        type: Sequelize.INTEGER,
+    },
+    content: {
+        type: Sequelize.STRING
+    },
+    user: {
+        type: Sequelize.STRING
+    }
+})
 User.sync()
 Post.sync()
-module.exports =  {User, Post}
+Comment.sync()
+module.exports =  {User, Post, Comment}

@@ -1,4 +1,4 @@
-const { User, Post } = require('../model/db') 
+const { User, Post, Comment } = require('../model/db') 
 var router = require('koa-router')()
 
 
@@ -56,6 +56,15 @@ router.get('/posts', async function (ctx, next) {
     posts: posts
   }
 })
+router.get('/post/:id', async function (ctx, next) {
+  let post_id = ctx.params.id
+  let post = await Post.findOne({ where: { post_id: post_id }})
+  let comments = await Comment.findAll({ where: { post_id: post_id } })
+  ctx.body = {
+    post: post,
+    comments: comments
+  }
+})
 
 router.post('/push', async function (ctx, next) {
   let content = ctx.request.body.content
@@ -71,6 +80,24 @@ router.post('/push', async function (ctx, next) {
   if(result) {
     ctx.body = {
       postSuccess: true
+    }
+  }
+})
+router.post('/comment', async function (ctx, next) {
+  let content = ctx.request.body.content
+  let user = ctx.request.body.user
+  let post_id = ctx.request.body.id
+  if(user === '') {
+    user = '匿名用户'
+  }
+  let result = await Comment.create({
+    content: content,
+    user: user,
+    post_id: post_id
+  })
+  if(result) {
+    ctx.body = {
+      commentSuccess: true
     }
   }
 })

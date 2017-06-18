@@ -1,15 +1,15 @@
 <template>
     <div class="content">     
-        <router-link :to=><div v-for="item in postList" class="v-post">
+        <router-link v-for="item in postList" :to="'post/'+item.post_id"><div  class="v-post">
             <h6>{{ item.user }}</h6>
             <p>{{ item.updatedAt }}</p>
             <p>{{ item.content }}</p>
             <div>
                 <img v-bind:src="item.url" alt="图片失效">
-            </div></router-link>
+            </div>
             <!--<Button type="ghost" icon="thumbsup">{{ item.likes }}</Button>
             <Button type="ghost" icon="chatbubble-working">{{ item.comment.length }}</Button>-->
-        </div>
+        </div></router-link>
     </div>
 </template>
 <script>
@@ -28,6 +28,9 @@ export default {
     padding: 3px;
     height: 100vh;
     overflow: scroll;
+}
+.content > a {
+    text-decoration: none;
 }
 .v-post {
 

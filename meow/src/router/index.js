@@ -34,9 +34,16 @@ const routers = [{
 {
   path: '/push',
   meta: {
-    title: 'post'
+    title: 'push'
   },
   component: (resolve) => require(['../view/push.vue'], resolve)
+},
+{
+  path: '/post/:id',
+  meta: {
+    title: 'post'
+  },
+  component: (resolve) => require(['../view/postPage.vue'], resolve)
 }
 ]
 export default new Router({
