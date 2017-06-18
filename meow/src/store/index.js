@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import api from '../api/api'
+import api from '../api'
 import router from '../router'
 
 Vue.use(Vuex)
@@ -15,11 +15,8 @@ export default new Vuex.Store({
   },
   actions: {
     getAllPosts ({commit, state}) {
-      return api.getAllPosts(state.section, state.curPage, state.user).then(res => {
+      api.getAllPosts(state.section).then(res => {
         commit('GET_ALL_POSTS', res.data.posts)
-        return new Promise((resolve, reject) => {
-          resolve(res)
-        })
       })
     },
     login ({commit, state}, { username, password }) {
@@ -36,7 +33,7 @@ export default new Vuex.Store({
   },
   mutations: {
     GET_ALL_POSTS (state, post) {
-      state.posts = state.posts.concat(post)
+      state.posts = post
     },
     CHANGE_SECTION (state, name) {
       state.section = name

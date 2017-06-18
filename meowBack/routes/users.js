@@ -1,5 +1,6 @@
+const { User, Post } = require('../model/db') 
 var router = require('koa-router')()
-const User = require('../model/db')
+
 
 router.prefix('/api');
 
@@ -46,6 +47,31 @@ router.get('/signup', async function (ctx, next) {
     }
     
   }
-});
+})
 
+router.get('/posts', async function (ctx, next) {
+  let post_type = ctx.request.query.section
+  let posts = await Post.findAll({ where: { post_type: post_type}})
+  ctx.body = {
+    posts: posts
+  }
+})
+
+router.post('/push', async function (ctx, next) {
+  let content = ctx.request.body.content
+  let url = ctx.request.body.content
+  let post_type = ctx.request.body.post_type
+  let user = ctx.request.body.user
+  let result = await Post.create({
+    content: content,
+    url: url,
+    post_type: post_type,
+    user: user
+  })
+  if(result) {
+    ctx.body = {
+      postSuccess: true
+    }
+  }
+})
 module.exports = router;

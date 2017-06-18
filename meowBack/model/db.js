@@ -10,6 +10,25 @@ sequelize.authenticate().then(() => {
     console.error('failed', err)
 })
 
+const Post = sequelize.define('post', {
+    post_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    content: {
+        type: Sequelize.STRING
+    },
+    url: {
+        type: Sequelize.STRING 
+    },
+    post_type: {
+        type: Sequelize.STRING
+    },
+    user: {
+        type: Sequelize.STRING
+    }
+})
 const User = sequelize.define('user', {
     username: {
         type: Sequelize.STRING,
@@ -20,5 +39,5 @@ const User = sequelize.define('user', {
     }
 })
 User.sync()
-
-module.exports = User
+Post.sync()
+module.exports =  {User, Post}

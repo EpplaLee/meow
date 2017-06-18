@@ -1,14 +1,14 @@
 <template>
     <div class="content">     
-        <div v-for="item in postList" class="v-post">
+        <router-link :to=><div v-for="item in postList" class="v-post">
             <h6>{{ item.user }}</h6>
-            <p>{{ item.time }}</p>
+            <p>{{ item.updatedAt }}</p>
             <p>{{ item.content }}</p>
             <div>
-                <img v-for="picUrl in item.pics" v-bind:src="picUrl" alt="图片失效">
-            </div>
-            <Button type="ghost" icon="thumbsup">{{ item.likes }}</Button>
-            <Button type="ghost" icon="chatbubble-working">{{ item.comment.length }}</Button>
+                <img v-bind:src="item.url" alt="图片失效">
+            </div></router-link>
+            <!--<Button type="ghost" icon="thumbsup">{{ item.likes }}</Button>
+            <Button type="ghost" icon="chatbubble-working">{{ item.comment.length }}</Button>-->
         </div>
     </div>
 </template>
