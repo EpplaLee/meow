@@ -1,7 +1,7 @@
 <template>
     <div class="menu">
         <div class="portrait">
-            <router-link to="/userpage" v-if="hasLog"><img src="../../assets/akumon.jpg" alt="" ></router-link>
+            <router-link :to="'/user/'+user" v-if="hasLog"><img src="../../assets/akumon.jpg" alt="" ></router-link>
             <router-link to="/login" v-else><img src="../../assets/notlog.png" alt="" ></router-link>
         </div>
         <Input v-model="value" class="input">
@@ -22,7 +22,8 @@ export default {
     return {
       value: '',
       select: 'post',
-      hasLog: this.$store.state.logState
+      hasLog: this.$store.state.logState,
+      user: this.$store.state.user
     }
   }
 }

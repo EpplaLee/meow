@@ -8,6 +8,9 @@ export default {
   getPost (postId) {
     return axios.get(`/api/post/${postId}`)
   },
+  getUser (username) {
+    return axios.get(`api/user/${username}`)
+  },
   login (username, password) {
     return axios.get(`/api/login?username=${username}&password=${password}`)
   },
@@ -34,6 +37,16 @@ export default {
         content: content,
         user: user,
         id: id
+      }
+    })
+  },
+  pushInfo (user, info) {
+    return axios({
+      method: 'POST',
+      url: '/api/userinfo',
+      data: {
+        user: user,
+        info: info
       }
     })
   }

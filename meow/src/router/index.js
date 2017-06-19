@@ -24,13 +24,13 @@ const routers = [{
   },
   component: (resolve) => require(['../view/signup.vue'], resolve)
 },
-// {
-//   path: '/userpage',
-//   meta: {
-//     title: 'userpage'
-//   },
-//   component: (resolve) => require(['./views/userpage'], resolve)
-// },
+{
+  path: '/user/:id',
+  meta: {
+    title: 'userpage'
+  },
+  component: (resolve) => require(['../view/userPage.vue'], resolve)
+},
 {
   path: '/push',
   meta: {
@@ -44,6 +44,13 @@ const routers = [{
     title: 'post'
   },
   component: (resolve) => require(['../view/postPage.vue'], resolve)
+},
+{
+  path: '/edit/:user',
+  meta: {
+    title: 'editInfo'
+  },
+  component: (resolve) => require(['../view/editUser'], resolve)
 }
 ]
 export default new Router({

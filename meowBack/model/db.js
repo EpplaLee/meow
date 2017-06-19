@@ -38,6 +38,27 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING
     }
 })
+const UserInfo = sequelize.define('userinfo', {
+    username: {
+        type: Sequelize.STRING,
+        primaryKey: true
+    },
+    gender: {
+        type: Sequelize.STRING
+    },
+    birthday: {
+        type: Sequelize.STRING
+    },
+    phoneNum: {
+        type: Sequelize.STRING
+    },
+    mail: {
+        type: Sequelize.STRING
+    },
+    city: {
+        type: Sequelize.STRING
+    }
+})
 const Comment = sequelize.define('comment', {
     post_id: {
         type: Sequelize.INTEGER,
@@ -52,4 +73,5 @@ const Comment = sequelize.define('comment', {
 User.sync()
 Post.sync()
 Comment.sync()
+UserInfo.sync()
 module.exports =  {User, Post, Comment}

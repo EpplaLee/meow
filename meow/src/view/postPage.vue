@@ -1,5 +1,6 @@
 <template>
     <div>
+      <router-link to="/"><Button icon="chevron-left" long></Button></router-link>
     <div  class="v-post">
             <h6>{{ post.user }}</h6>
             <p>{{ post.updatedAt }}</p>
@@ -15,7 +16,8 @@
         <p>{{ cmt.content }}</p>
     </div>
     <Input v-model="comment">
-        <Button slot="append" icon="ios-search" v-on:click="pushComment"></Button>
+        <Button slot="append" icon="chatbox-working" v-on:click="pushComment"></Button>
+        
     </Input>
     </div>
 </template>
